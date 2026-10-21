@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Müziğin Değerini Öğrenmek</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap">
+<style>
+:root{--bg:#fff8e7;--line:#bfe3f5;--ink:#2b2b3a;--card:#ffffff;--c1:#ffd93d;--c2:#ff7eb6;--c3:#5cc8ff;--c4:#7bdc7b;--c5:#ff9f45;--c6:#b197fc;--sh:#2b2b3a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d2133;--line:#2c3350;--ink:#fdf6e3;--card:#2a2f47;--sh:#0c0e18}}
+:root[data-theme="dark"]{--bg:#1d2133;--line:#2c3350;--ink:#fdf6e3;--card:#2a2f47;--sh:#0c0e18}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--ink);font:19px/1.6 "Patrick Hand","Comic Sans MS",cursive;background-color:var(--bg);background-image:linear-gradient(90deg,transparent 46px,#ff7e7e 46px,#ff7e7e 48px,transparent 48px),repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);background-attachment:local}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 0 62px}
+h1,h2,h3{font-family:Caveat,"Comic Sans MS",cursive;margin:0}
+h1{font-size:clamp(40px,10vw,64px);line-height:1;padding-top:22px;transform:rotate(-1.5deg)}
+h1 span{background:linear-gradient(transparent 55%,var(--c1) 55%);padding:0 6px}
+.sub{margin:6px 0 14px;font-size:20px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+nav a{padding:5px 14px;border:3px solid var(--sh);border-radius:12px;color:#2b2b3a;text-decoration:none;font-family:Caveat,cursive;font-size:22px;box-shadow:3px 3px 0 var(--sh)}
+nav a:nth-child(1){background:var(--c1)}nav a:nth-child(2){background:var(--c4)}nav a:nth-child(3){background:var(--c2)}nav a:nth-child(4){background:var(--c3)}nav a:nth-child(5){background:var(--c6)}
+nav a:nth-child(odd){transform:rotate(-1.5deg)}nav a:nth-child(even){transform:rotate(1.5deg)}
+nav a.on{outline:3px dashed var(--ink);outline-offset:2px}
+section{display:none}section.on{display:block}
+h2{font-size:40px;margin:12px 0 6px;transform:rotate(-1deg)}
+h2 span{border-bottom:5px wavy var(--c2);padding-bottom:2px}
+.card{background:var(--card);border:3px solid var(--sh);border-radius:16px 22px 14px 24px;padding:12px 16px;margin:16px 0;box-shadow:5px 5px 0 var(--sh)}
+.card:nth-of-type(odd){transform:rotate(-.8deg)}.card:nth-of-type(even){transform:rotate(.7deg)}
+.card h3{font-size:30px;line-height:1.1;display:inline-block;padding:0 8px;border-radius:8px;color:#2b2b3a}
+.card p{margin:6px 0 2px}
+.k1 h3{background:var(--c1)}.k2 h3{background:var(--c4)}.k3 h3{background:var(--c3)}.k4 h3{background:var(--c5)}.k5 h3{background:var(--c6)}
+.n1 h3{background:var(--c2)}.n2 h3{background:var(--c5)}.n3 h3{background:var(--c6)}.n4 h3{background:var(--c1)}.n5 h3{background:var(--c3)}
+.hero{width:100%;height:auto;display:block;border:3px solid var(--sh);border-radius:20px;box-shadow:5px 5px 0 var(--sh);margin:8px 0 14px;transform:rotate(.6deg)}
+.row{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:center;margin:10px 0;font-size:18px}
+.track{border:3px solid var(--sh);border-radius:14px;height:28px;overflow:hidden;background:var(--card)}
+.fill{height:100%;width:0;transition:width 1s ease;border-right:3px solid var(--sh)}
+.note{font-size:16px;opacity:.85}
+ol.src{padding-left:24px}ol.src li{margin:14px 0}
+.src a{color:var(--ink);font-weight:bold;text-decoration:underline wavy var(--c3);text-underline-offset:4px;word-break:break-word}
+.src small{display:block;opacity:.85;font-size:16px}
+.by{display:inline-block;margin:6px 0 10px;padding:2px 18px;background:var(--c2);color:#2b2b3a;border:3px solid var(--sh);border-radius:10px;box-shadow:4px 4px 0 var(--sh);font:700 38px Caveat,cursive;transform:rotate(-3deg)}
+footer{text-align:center;padding:24px 18px 40px 62px;font-size:18px}
+footer b{font-family:Caveat,cursive;font-size:28px;background:var(--c1);color:#2b2b3a;padding:0 10px;border-radius:6px}
+@media(max-width:480px){.row{grid-template-columns:1fr;gap:4px}.wrap{padding-left:56px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1><span>Müziğin Değerini Öğrenmek</span></h1>
+<p class="sub">Neler kazandırır, neler zorlar? Birlikte bakalım.</p>
+<nav id="nav"><a href="#giris">Giriş</a><a href="#olumlu">Olumlu</a><a href="#olumsuz">Olumsuz</a><a href="#grafik">Grafikler</a><a href="#kaynaklar">Kaynaklar</a></nav>
+
+<section id="giris">
+<svg class="hero" viewBox="0 0 700 260" role="img" aria-label="Renkli müzik notaları ve yıldızlar çizimi">
+<rect width="700" height="260" fill="#ffe66d"/>
+<g fill="none" stroke="#2b2b3a" stroke-width="3" stroke-linecap="round"><path d="M10 90 Q175 80 350 92 T690 88"/><path d="M10 115 Q175 105 350 117 T690 113"/><path d="M10 140 Q175 130 350 142 T690 138"/><path d="M10 165 Q175 155 350 167 T690 163"/><path d="M10 190 Q175 180 350 192 T690 188"/></g>
+<g stroke="#2b2b3a" stroke-width="4" stroke-linecap="round"><ellipse cx="120" cy="170" rx="24" ry="17" fill="#ff7eb6" transform="rotate(-20 120 170)"/><path d="M141 163 L141 60" fill="none"/><path d="M141 60 Q175 70 172 105" fill="none"/>
+<ellipse cx="320" cy="140" rx="24" ry="17" fill="#5cc8ff" transform="rotate(-20 320 140)"/><path d="M341 133 L341 40" fill="none"/>
+<ellipse cx="420" cy="165" rx="24" ry="17" fill="#7bdc7b" transform="rotate(-20 420 165)"/><path d="M441 158 L441 40" fill="none"/><path d="M341 40 L441 40" stroke-width="8"/>
+<ellipse cx="590" cy="120" rx="24" ry="17" fill="#b197fc" transform="rotate(-20 590 120)"/><path d="M611 113 L611 35" fill="none"/><path d="M611 35 Q645 45 642 80" fill="none"/></g>
+<g fill="#ff9f45" stroke="#2b2b3a" stroke-width="3" stroke-linejoin="round"><path d="M230 45 l7 16 17 2 -13 12 4 17 -15 -9 -15 9 4 -17 -13 -12 17 -2z"/><path d="M520 205 l6 13 14 2 -10 10 3 14 -13 -7 -13 7 3 -14 -10 -10 14 -2z"/><path d="M45 40 l5 11 12 1 -9 8 3 12 -11 -6 -11 6 3 -12 -9 -8 12 -1z"/></g>
+</svg>
+<h2><span>Neden önemli?</span></h2>
+<p>Müzik öğrenmek sadece nota bilmek değil. Dinlemeyi, sabırlı olmayı ve duyguları anlatmayı da öğretir. Ama her şeyin faydası yok, zorlukları da var. Bu sitede ikisine de dürüstçe bakıyoruz.</p>
+<p>Kısaca: Müziğin dinleme, dikkat ve disiplin gibi kazanımları iyi anlatılıyor. “Müzik çalan herkes her derste başarılı olur” gibi büyük sözlere ise biraz dikkatli yaklaşmak lazım.</p>
+</section>
+
+<section id="olumlu">
+<h2><span>Olumlu yönler</span></h2>
+<div class="card k1"><h3>Kulak gelişir</h3><p>Sesleri, ritmi ve perdeyi daha iyi ayırt etmeyi öğrenirsin. Arka plan gürültüsünden belirli bir sesi seçmek kolaylaşır.</p></div>
+<div class="card k2"><h3>Dil ve okuma</h3><p>Müzik, dil öğrenirken çalışan beyin bölgeleriyle ilişkili. Bu yüzden konuşma ve okuma becerilerine yardım edebileceği söyleniyor.</p></div>
+<div class="card k3"><h3>Beyin çalışır</h3><p>Enstrüman çalmak hem dikkat hem hafıza hem de el koordinasyonu ister. Kaynaklar bunu “beyin için antrenman” diye anlatıyor.</p></div>
+<div class="card k4"><h3>Disiplin ve sabır</h3><p>Her gün biraz çalışınca ilerlediğini görürsün. Çabanın karşılığını almak güzel bir ders.</p></div>
+<div class="card k5"><h3>Duygu ve arkadaşlık</h3><p>Koro ya da grup çalmak insanları birleştirir. Müzik, söze dökemediğin duyguyu anlatmanın yoludur.</p></div>
+</section>
+
+<section id="olumsuz">
+<h2><span>Olumsuz yönler</span></h2>
+<div class="card n1"><h3>Çok zaman ister</h3><p>İyi çalmak yıllar sürebilir. Düzenli çalışmak diğer işlere ayıracağın zamandan alır.</p></div>
+<div class="card n2"><h3>Pahalı olabilir</h3><p>Enstrüman, ders ve nota herkes için kolay karşılanamaz. Bu yüzden herkes aynı fırsata sahip olmuyor.</p></div>
+<div class="card n3"><h3>Sahne heyecanı</h3><p>Herkesin önünde çalmak bazı öğrencilerde çok stres yaratır.</p></div>
+<div class="card n4"><h3>Vücut yorulur</h3><p>Uzun süre yanlış duruşla çalışmak sırtı ve elleri yorar. Çok yüksek sesli ortam da kulağa zarar verebilir.</p></div>
+<div class="card n5"><h3>Büyük iddialar</h3><p>Bazı sitelerde “IQ’yu şu kadar artırır” gibi çok iddialı sözler var. Daha dikkatli araştırmalar, etkinin sanıldığı kadar büyük olmayabileceğini söylüyor. Bu yüzden her yazıya hemen inanma.</p></div>
+</section>
+
+<section id="grafik">
+<h2><span>Grafikler</span></h2>
+<div class="card k3"><h3>Neler kazandırır?</h3><div id="c1"></div><p class="note">Çubuklar kaynaklarda anlatılanlara göre yaptığım yaklaşık bir puanlamadır (5 üzerinden). Kesin ölçüm değildir.</p></div>
+<div class="card n1"><h3>En büyük zorluklar</h3><div id="c2"></div><p class="note">Bunlar da fikir vermek için yaklaşık olarak çizildi (5 üzerinden).</p></div>
+</section>
+
+<section id="kaynaklar">
+<h2><span>Bilgi aldığım siteler</span></h2>
+<div class="by">Bysensoz</div>
+<p class="note">Bu siteler kolay okunan, herkesin açabileceği sayfalar. Bazıları okul ya da müzik kursu sitesi olduğu için iyi yönleri biraz fazla vurguluyor olabilir. Olumsuz yönler genel bilgiye dayanır.</p>
+<ol class="src">
+<li><a href="https://www.pbs.org/parents/thrive/the-benefits-of-music-education" target="_blank" rel="noopener">PBS Parents: The Benefits of Music Education</a><small>Müzik öğrenmenin dil, disiplin ve beyin üzerindeki etkileri, uzman görüşleriyle.</small></li>
+<li><a href="https://files.rcmusic.com/sites/default/files/files/RCM_MusicEducationBenefits_Infographic.pdf" target="_blank" rel="noopener">Royal Conservatory of Music: Benefits of Music Education (infografik)</a><small>Resimli ve kısa özet.</small></li>
+<li><a href="https://new.nymetroparents.com/article/how-music-benefits-childrens-development" target="_blank" rel="noopener">NY Metro Parents: How Music Benefits Children’s Development</a><small>Beyin ve karakter gelişimi üzerine.</small></li>
+<li><a href="https://childrenslighthouse.com/learning-wall/benefits-of-music-education" target="_blank" rel="noopener">Children’s Lighthouse: Benefits of Music Education</a><small>Fiziksel, sosyal ve zihinsel gelişim özeti.</small></li>
+<li><a href="https://www.ensembleschools.com/blog/music-lesson-benefits-kids/" target="_blank" rel="noopener">Ensemble Schools: Benefits of Music Education for Children</a><small>Beyin gelişimi ve özgüven üzerine kısa yazı.</small></li>
+</ol>
+</section>
+</div>
+<footer>Hazırlayan: <b>Bysensoz</b></footer>
+
+<script>
+var pages=["giris","olumlu","olumsuz","grafik","kaynaklar"];
+var cols=["#ffd93d","#7bdc7b","#5cc8ff","#ff9f45"],cols2=["#ff7eb6","#b197fc","#ffd93d","#7bdc7b"];
+function data(id,rows,cs){var h="";rows.forEach(function(r,i){h+='<div class="row"><span>'+r[0]+'</span><div class="track"><div class="fill" style="background:'+cs[i]+'" data-w="'+(r[1]*20)+'"></div></div></div>'});document.getElementById(id).innerHTML=h}
+data("c1",[["Kulak gelişimi",4.5],["Dil becerisi",3],["Dikkat ve hafıza",3.5],["Okul başarısı",2]],cols);
+data("c2",[["Zaman",4.5],["Para",3.5],["Sahne heyecanı",3],["Vücut yorgunluğu",2]],cols2);
+function show(){
+  var h=(location.hash||"#giris").slice(1);if(pages.indexOf(h)<0)h="giris";
+  pages.forEach(function(p){document.getElementById(p).classList.toggle("on",p===h)});
+  document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
+  document.querySelectorAll(".fill").forEach(function(f){f.style.width="0"});
+  if(h==="grafik")setTimeout(function(){document.querySelectorAll(".fill").forEach(function(f){f.style.width=f.dataset.w+"%"})},60);
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",show);show();
+</script>
+</body>
+</html>
